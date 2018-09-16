@@ -1,0 +1,13 @@
+I couldn't create a script that would do it so here are the terminal commands line by line:
+mkdir /home/$USER/public_html
+sudo ln -s /home/../tmp /var/www/html
+
+if not working:
+sudo chmod o+x /home/ /home/$USER/ /home/$USER/public_html
+
+if still not working:
+sudo nano /etc/apache2/apache2.conf
+"allowoverride Indexes" instead of none
+and restart the service(services apache2 stop, services apache2 start)
+
+if you can create the script feel free to contact me with it, either using email or with a pull request. It is worth it for you
