@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<div ng-if="statusCode == 200">
+		<div class="alert alert-success">
+			<p><strong>Success!</strong> You've successfully added a new author.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode == 403">
+		<div class="alert alert-warning">
+			<p><strong>Warning!</strong> You don't have permission to add new author.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode == 409">
+		<div class="alert alert-warning">
+			<p><strong>Warning!</strong> You can't add this author because it already exists.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode >= 500">
+		<div class="alert alert-danger">
+			<p><strong>Error {{ statusCode }}!</strong> Server Error</p>
+		</div>
+	</div>
+	<form ng-submit="addAuthor()">
+		<div class="form-group">
+			<label>Name:</label>
+			<input type="text" class="form-control" ng-model="author.name" placeholder="Enter the author's name." required />
+		</div>
+		<button type="submit" class="btn btn-default">Add Author</button>
+	</form>
+</div>

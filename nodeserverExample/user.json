@@ -1,0 +1,14 @@
+[
+  {
+    "username": "Satan",
+    "name": "Satan Adam",
+    "role": "LIBRARIAN",
+    "password": "1"
+  },
+  {
+    "username": "1",
+    "name": "Teszt Elek",
+    "role": "user",
+    "password": "2"
+  }
+]

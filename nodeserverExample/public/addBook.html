@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<div ng-if="statusCode == 200">
+		<div class="alert alert-success">
+			<p><strong>Success!</strong> You've successfully added a new book.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode == 403">
+		<div class="alert alert-warning">
+			<p><strong>Warning!</strong> You don't have permission to add new book.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode == 409">
+		<div class="alert alert-warning">
+			<p><strong>Warning!</strong> You can't add this book because it already exists.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode >= 500">
+		<div class="alert alert-danger">
+			<p><strong>Error {{ statusCode }}!</strong> Server Error</p>
+		</div>
+	</div>
+	<form ng-submit="addBook()">
+		<div class="form-group">
+			<label>Title:</label>
+			<input type="text" class="form-control" ng-model="book.title" placeholder="Enter the book's title." required />
+		</div>
+		<div class="form-group">
+			<label>Author:</label>
+			<select ng-model="book.author" class="form-control" ng-options="a.name for a in authors"></select>
+		</div>
+		<div class="form-group">
+			<label>Genre:</label>
+			<input type="text" ng-model="book.genre" class="form-control" required>
+		</div>
+		<button type="submit" class="btn btn-default">Add Book</button>
+	</form>
+</div>

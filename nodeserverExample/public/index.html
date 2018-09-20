@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body ng-app="library" ng-controller="libraryCtrl">
+    <div ng-include="'navbar.html'"></div>
+    <div ng-view></div>
+
+    <script>
+        var library = angular.module("library", ["ngRoute"]);
+        library.config(function ($routeProvider) {
+            $routeProvider
+                .when("/", {
+                    templateUrl: "login.html",
+                    controller: "userController"
+                })
+                .when("/welcome", {
+                    templateUrl: "welcome.html"
+                })
+                .when("/editUser", {
+                    templateUrl: "editUser.html",
+                    controller: "userController"
+                })
+                .when("/bookList", {
+                    templateUrl: "bookList.html",
+                    controller: "bookController"
+                })
+                .when("/addBook", {
+                    templateUrl: "addBook.html",
+                    controller: "bookController"
+                })
+                .when("/addBookInstance", {
+                    templateUrl: "addBookInstance.html",
+                    controller: "bookController"
+                })
+                .when("/manageRentals", {
+                    templateUrl: "manageRentals.html",
+                    controller: "bookController"
+                })
+                .when("/addAuthor", {
+                    templateUrl: "addAuthor.html",
+                    controller: "authorController"
+                })
+                .otherwise({
+                    redirectTo: "/welcome"
+                });
+        });
+        
+        library.directive("bookAvailableDirective", function () {
+            return {
+                restrict: "EA",
+                scope: {
+                    available: "@",
+                    quantity: "@"
+                },
+                templateUrl: "bookAvailable.html"
+            };
+        });
+        
+        library.controller("libraryCtrl", function ($scope, $rootScope, $http, $location) {
+            $rootScope.newuser = {};
+            $rootScope.$on("$routeChangeStart", function (event, next, current) {
+                $http.get("/user").then(function (response) {
+                    $rootScope.user = angular.copy(response.data);
+                    if ($rootScope.user === "") {
+                        $rootScope.user = undefined;
+                    }
+                });
+                if (next.originalPath === "") {
+                } else if ($rootScope.user === undefined && next.originalPath !== "/" && next.originalPath !== "/login") {
+                    $location.path("/login");
+                } else if ($rootScope.user !== undefined && next.originalPath === "/login") {
+                    $location.path("/");
+                }
+            });
+        });
+        library.controller("userController", function ($scope, $rootScope, $http, $location) {
+            $scope.login = function () {
+                console.log($rootScope.newuser);
+                $http.post("/login", $rootScope.newuser).then(
+                    function (response) {
+                        $scope.statusCode = response.status;
+                        if ($scope.statusCode === 200) {
+                            $rootScope.user = angular.copy(response.data);
+                            if ($rootScope.user === "") {
+                                $rootScope.user = undefined;
+                            }
+                            $rootScope.newuser = {};
+                            $location.path("/welcome");
+                        }
+                    },
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    }
+                );
+            };
+            $scope.logout = function () {
+                $http.post("/logout").then(
+                    function (response) {
+                        $scope.statusCode = response.status;
+                        $location.path("/");
+                    },
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    }
+                );
+                $rootScope.user = undefined;
+            };
+            $scope.edit = function () {
+                console.log($scope.moduser);
+                $http.post("/editUser", $scope.moduser).then(
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    },
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    }
+                );
+            };
+        });
+        library.controller("bookController", function ($scope, $http) {
+            $http.get("/authors").then(function (response) {
+                $scope.authors = response.data;
+            });
+            $http.get("/books").then(function (response) {
+                $scope.books = response.data;
+            });
+            $http.get("/genres").then(function (response) {
+                $scope.genres = response.data;
+            });
+            $http.get("/requests").then(function (response) {
+                $scope.requests = response.data;
+            });
+            $scope.availabilityFilter = function (book) {
+                return !$scope.available || book.available > 0;
+            };
+            $scope.addBook = function () {
+                $http.post("/addBook", $scope.book).then(
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    },
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    }
+                );
+            };
+            $scope.addBookInstance = function () {
+                $scope.book.quantity = $scope.quantity;
+                $http.post("/addBookInstance", $scope.book).then(
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    },
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    }
+                );
+            };
+            $scope.viewBook = function (book) {
+                $scope.book = book;
+            };
+            $scope.requestBook = function () {
+                $http.post("/requestBook", $scope.book).then(
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    },
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    }
+                );
+            };
+            $scope.lendBook = function (request) {
+                $scope.request = request;
+                $http.post("/lendBook", $scope.request).then(
+                    function (response) {
+                        $scope.statusCode = response.status;
+                        $http.get("/requests").then(function (response) {
+                            $scope.requests = response.data;
+                        });
+                    },
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    }
+                );
+            };
+        });
+        library.controller("authorController", function ($scope, $http) {
+            $scope.addAuthor = function () {
+                $http.post("/addAuthor", $scope.author).then(
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    },
+                    function (response) {
+                        $scope.statusCode = response.status;
+                    }
+                );
+            };
+        });
+    </script>
+</body>
+</html>

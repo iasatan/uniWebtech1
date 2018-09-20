@@ -1,0 +1,14 @@
+<div class="progress">
+	<div ng-if="(available / quantity * 100) >= 75" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{ available / quantity * 100 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ available / quantity * 100 }}%">
+		{{ available + " of " + quantity }}
+	</div>
+	<div ng-if="(available / quantity * 100) >= 50 && (available / quantity * 100) < 75" class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="{{ available / quantity * 100 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ available / quantity * 100 }}%">
+		{{ available + " of " + quantity }}
+	</div>
+	<div ng-if="(available / quantity * 100) >= 25 && (available / quantity * 100) < 50" class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="{{ available / quantity * 100 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ available / quantity * 100 }}%">
+		{{ available + " of " + quantity }}
+	</div>
+	<div ng-if="(available / quantity * 100) < 25" class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="{{ available / quantity * 100 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ available / quantity * 100 }}%">
+		{{ available + " of " + quantity }}
+	</div>
+</div>

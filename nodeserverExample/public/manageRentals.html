@@ -1,0 +1,70 @@
+<div class="container-fluid">
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Borrower</th>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Lend</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="request in requests">
+					<td>{{ request.borrower }}</td>
+					<td>{{ request.title }}</td>
+					<td>{{ request.author }}</td>
+					<td><button type="button" class="btn btn-default"
+							ng-click="lendBook(request)" data-toggle="modal"
+							data-target="#lendBookModal">Lend</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="lendBookModal" class="modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4>Book lend</h4>
+				</div>
+				<div class="modal-body">
+					<div ng-if="statusCode == 200">
+						<div class="alert alert-success">
+							<p>
+								<strong>Success!</strong> You've lent {{ request.author }}'s {{
+								request.title }} to {{ request.borrower }}.
+							</p>
+						</div>
+					</div>
+					<div ng-if="statusCode == 403">
+						<div class="alert alert-warning">
+							<p>
+								<strong>Warning!</strong> You don't have permission to lend
+								books.
+							</p>
+						</div>
+					</div>
+					<div ng-if="statusCode == 409">
+						<div class="alert alert-warning">
+							<p>
+								<strong>Warning!</strong> You can't lend this book beacuse it's
+								currently not available.
+							</p>
+						</div>
+					</div>
+					<div ng-if="statusCode >= 500">
+						<div class="alert alert-danger">
+							<p>
+								<strong>Error {{ statusCode }}!</strong> Server Error
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

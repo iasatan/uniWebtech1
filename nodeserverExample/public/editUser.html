@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<div ng-if="statusCode == 200">
+		<div class="alert alert-success">
+			<p><strong>Success!</strong> You've successfully modified your account.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode == 403">
+		<div class="alert alert-warning">
+			<p><strong>Warning!</strong> You have to log in to modify an account.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode == 409">
+		<div class="alert alert-warning">
+			<p><strong>Warning!</strong> The old password is incorrect.</p>
+		</div>
+	</div>
+	<div ng-if="statusCode >= 500">
+		<div class="alert alert-danger">
+			<p><strong>Error {{ statusCode }}!</strong> Server Error</p>
+		</div>
+	</div>
+	<form ng-submit="edit()">
+		<div class="form-group">
+			<label for="name">Name:</label>
+			<input id="name" type="text" class="form-control" ng-model="moduser.name" placeholder="Enter your real name." required />
+		</div>
+		<div class="form-group">
+			<label for="opwd">Old Password:</label>
+			<input id="opwd" type="password" class="form-control" ng-model="moduser.oldpassword" placeholder="Enter the old password." required />
+		</div>
+		<div class="form-group">
+			<label for="npwd">New Password:</label>
+			<input id="npwd" type="password" class="form-control" ng-model="moduser.newpassword" placeholder="Enter the new password." required />
+		</div>
+		<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-ok"></i> Save</button>
+	</form>
+</div>
