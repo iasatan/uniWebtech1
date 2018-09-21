@@ -2,13 +2,17 @@ var express = require('express');
 var bodyParser = require("body-parser");
 var fs = require('fs');
 var app = express();
-var authors = [{"name":"dm"},{"name":"VARTA"},{"name":"tulajdonosok"},{"name":"random2"},{"name":"random5"},{"name":"random8"},{"name":"random11"},{"name":"asd"},{"name":"Satan Adam"},{"name":"Sátán"}];
+var authors = [{"name": "dm"}, {"name": "VARTA"}, {"name": "tulajdonosok"}, {"name": "random2"}, {"name": "random5"}, {"name": "random8"}, {"name": "random11"}, {"name": "asd"}, {"name": "Satan Adam"}, {"name": "Sátán"}];
 
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({
-    extended: true
-}));
+        extended: true
+    }
+    )
+)
+
+;
 app.use(bodyParser.json());
 
 app.get('/authors', function (req, res) {
@@ -16,14 +20,14 @@ app.get('/authors', function (req, res) {
 })
 
 app.post('/addAuthor', function (req, res) {
-   
+
     for (var a of authors) {
         if (a.name === req.body.name) {
             res.status(409).end();
             return;
         }
     }
-    var author={"name":req.body.name}
+    var author = {"name": req.body.name}
     authors.push(author);
     res.end();
 })
