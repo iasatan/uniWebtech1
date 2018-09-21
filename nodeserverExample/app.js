@@ -4,7 +4,7 @@ var fs = require('fs');
 var app = express();
 var authors = [{"name": "dm"}, {"name": "VARTA"}, {"name": "tulajdonosok"}, {"name": "random2"}, {"name": "random5"}, {"name": "random8"}, {"name": "random11"}, {"name": "asd"}, {"name": "Satan Adam"}, {"name": "Sátán"}];
 
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({
         extended: true
