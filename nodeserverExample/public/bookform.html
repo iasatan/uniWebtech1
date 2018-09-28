@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Author Form</title>
+</head>
+<body>
+<div id="header">
+    <div id="banner">
+        <div id="menuBar">
+            <table width="100%">
+                <tr>
+                    <td>Library</td>
+                    <td><span class="menuButton"><a href="index.html">Home</a></span></td>
+                    <td><span class="menuButton"><a href="bookform.html">Add Books</a></span></td>
+                    <td><span class="menuButton"><a href="authorform.html">Add Authors</a></span></td>
+                    <td><span class="menuButton"><a href="asd.html">asd</a></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<form action="addBook" method="post" class="form">
+    <table class="table" border="1">
+
+        <tr>
+            <td>Title:</td>
+            <td><input type="text" name="title" required="required" autofocus/></td>
+        </tr>
+        <tr>
+            <td>Genre:</td>
+            <td><select name="genre" required="required">
+                <option
+                        value="Scifi">Sci-Fi
+                </option>
+                <option value="Fantasy">Fantasy</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Author:</td>
+            <td><input type="text" name="author" required="required"/></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="number" name="quantity" required="required"/></td>
+        </tr>
+        <tr>
+            <td>Available:</td>
+            <td><input type="number" name="available" required="required"/></td>
+        </tr>
+        <tr>
+            <td>Publisher:</td>
+            <td><input type="email" name="publisher" required="required"></td>
+        </tr>
+    </table>
+    <input type="submit" name="insert" value="Add Book"/>
+</form>
+<div id="help"></div>
+
+</body>
+
+
+</html>
