@@ -78,8 +78,8 @@ var books = [
         "available": 0,
         "publisher": "asd@asd.com"
     }];
-app.use(express.static(__dirname + '/public'));
-//app.use(express.static(__dirname + '/student'));
+//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/student'));
 
 app.use(bodyParser.urlencoded({
     extended: false
