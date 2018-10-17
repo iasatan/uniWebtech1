@@ -31,7 +31,17 @@ var cars = [
         "year":1996,
         "available":1,
         "horsepower":50
+    },
+        {
+        "name": "Focus",
+        "consumption": "7/100km",
+        "color": "blue",
+        "manufacturer": "Ford",
+        "available": 1,
+        "year": 2013,
+        "horsepower":120
     }
+    
     ];
 app.use(express.static(__dirname + '/student'));
 app.use(cookieParser());
