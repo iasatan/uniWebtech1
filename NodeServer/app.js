@@ -2,117 +2,65 @@ var express = require('express');
 var bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
 var app = express();
-var authors =
-    [{"id": 1, "name": "dm", "nationality": "c#", "birthDate": randomDate()},
-        {"id": 2, "name": "VARTA", "nationality": "c#", "birthDate": randomDate()},
-        {"id": 3, "name": "tulajdonosok", "nationality": ".net", "birthDate": randomDate()},
-        {"id": 4, "name": "random2", "nationality": "public", "birthDate": randomDate()},
-        {"id": 5, "name": "random5", "nationality": "html", "birthDate": randomDate()},
-        {"id": 6, "name": "random8", "nationality": "platform", "birthDate": randomDate()},
-        {"id": 7, "name": "random11", "nationality": "webapp", "birthDate": randomDate()},
-        {"id": 8, "name": "asd", "nationality": "postman", "birthDate": randomDate()},
-        {"id": 9, "name": "Satan Adam", "nationality": "github", "birthDate": randomDate()},
-        {"id": 10, "name": "Sátán", "nationality": "timestamp", "birthDate": randomDate()}];
-
-var books = [
+var manufacturers =
+    [
+        {"name": "Opel",                "country": "Germany",       "founded": "January 21, 1862"},
+        {"name": "Toyota",              "country": "Japan",         "founded": "August 28, 1937"},
+        {"name": "KIA",                 "country": "Bad Korea",     "founded": "December 1, 1944"},
+        {"name": "Skoda",               "country": "Czech",         "founded": "December 18, 1895"},
+        {"name": "Ford",                "country": "USA",           "founded": "June 16, 1903"},
+        {"name": "Tesla",               "country": "USA",           "founded": "July 1, 2003"},
+        {"name": "Chevrolet",           "country": "USA",           "founded": "November 3, 1911"},
+        {"name:":"Sungri Motor Plant",  "country": "True Korea",    "founded":"November 1, 1950"}
+];
+var cars = [
     {
-        "title": "Das gesunde PLUS",
-        "genre": "medical",
-        "author": "dm",
-        "quantity": 2,
-        "available": 0,
-        "publisher": "asd@asd.com"
-    }, {
-        "title": "SUPERLIFE",
-        "genre": "electronics",
-        "author": "VARTA",
-        "quantity": 432,
-        "available": 233,
-        "publisher": "asd@asd.com"
-    }, {
-        "title": "meguntam",
-        "genre": "random1",
-        "author": "random2",
-        "quantity": 4,
-        "available": 2,
-        "publisher": "asd@asd.com"
-    }, {
-        "title": "random3",
-        "genre": "random4",
-        "author": "random5",
-        "quantity": 4,
-        "available": 2,
-        "publisher": "asd@asd.com"
-    }, {
-        "title": "random6",
-        "genre": "random7",
-        "author": "random8",
-        "quantity": 4,
-        "available": 2,
-        "publisher": "asd@asd.com"
-    }, {
-        "title": "random9",
-        "genre": "random10",
-        "author": "random11",
-        "quantity": 4,
-        "available": 2,
-        "publisher": "asd@asd.com"
-    }, {
-        "title": "Why everybody else is a loser",
-        "genre": "tisztelt",
-        "author": "Satan Adam",
-        "quantity": 0,
-        "available": 0,
-        "publisher": "asd@asd.com"
-    }, {
-        "title": "101 reasons why I am better than you",
-        "genre": "Fiction",
-        "author": "Satan Adam",
-        "quantity": 23,
-        "available": 22,
-        "publisher": "asd@asd.com"
-    }, {
-        "title": "ékezetes teszt",
-        "genre": "teszt",
-        "author": "Sátán",
-        "quantity": 0,
-        "available": 0,
-        "publisher": "asd@asd.com"
-    }];
+        "name": "Corolla",
+        "consumption": "7l/100km",
+        "color": "gray",
+        "manufacturer": "Toyota",
+        "available": 1,
+        "year": 2003,
+        "horsepower":100
+    },
+    {
+        "name":"Astra",
+        "consumption":"10l/100km",
+        "color":"gold",
+        "manufacturer":"Opel",
+        "year":1996,
+        "available":1,
+        "horsepower":50
+    }
+    ];
 app.use(express.static(__dirname + '/student'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-function randomDate() {
-    var start = new Date(1921, 1, 5);
-    var end = new Date(2000, 0, 0);
-    var date = new Date(+start + Math.random() * (start - end));
-    return date;
-}
 
 app.use(bodyParser.json());
 
-app.get('/authors', function (req, res) {
-    res.send(authors);
+app.get('/manufacturers', function (req, res) {
+    res.send(manufacturers);
 });
-app.get('/authorNames', function (req, res) {
-    var authorNames = [];
-    for (let a of authors) {
-        if (!authorNames.includes(a.name)) {
-            authorNames.push(a.name);
+app.get('/manufacturerNames', function (req, res) {
+    var manufacturerNames = [];
+    for (let m of manufacturers) {
+        if (!manufacturerNames.includes(m.name)) {
+            manufacturerNames.push(m.name);
         }
     }
-    res.send(authorNames);
+    res.send(manufacturerNames);
 });
-app.get('/books', function (req, res) {
-    res.send(books);
+app.get('/cars', function (req, res) {
+    res.send(cars);
 });
-app.get('/author', function (req, res) {
+app.get('/manufacturer', function (req, res) {
     var ok = false;
-    for (var author of authors) {
-        if (author.name === req.cookies.name) {
+    for (var manufacturer of manufacturers) {
+        if (manufacturer.name === req.cookies.name) {
             ok = true;
             break;
         }
@@ -123,46 +71,49 @@ app.get('/author', function (req, res) {
         return;
     }
 
-    var authorBooks = [];
-    for (let a of books) {
-        if (req.cookies.name === a.author) {
-            authorBooks.push(a);
+    var manufacturerCars = [];
+    for (let car of cars) {
+        if (req.cookies.name === car.manufacturer) {
+            manufacturerCars.push(car);
         }
     }
-    console.log(authorBooks);
-    res.send(authorBooks);
+    res.send(manufacturerCars);
 });
-app.post('/addBook', function (req, res) {
-    for (var book of books) {
-        if (book.title === req.body.title) {
+app.post('/addCar', function (req, res) {
+    for (var car of cars) {
+        if (car.name === req.body.name) {
             res.status(409).end();
             return;
         }
     }
-    var book = {
-        "title": req.body.title,
-        "genre": req.body.genre,
-        "author": req.body.author,
-        "quantity": req.body.quantity,
-        "available": req.body.available,
-        "publisher": req.body.publisher
+    var carJSON = {
+        "name":req.body.name,
+        "consumption":req.body.consumption,
+        "color":req.body.color,
+        "manufacturer":req.body.manufacturer,
+        "year":req.body.year,
+        "available":req.body.available,
+        "horsepower":req.body.horsepower
     };
-    books.push(book);
-    res.send(books);
+    cars.push(carJSON);
+    res.send(cars);
 });
 
-app.post('/addAuthor', function (req, res) {
+app.post('/addManufacturers', function (req, res) {
 
-    for (var a of authors) {
-        if (a.name === req.body.name) {
+    for (var m of manufacturers) {
+        if (m.name === req.body.name) {
             res.status(409).end();
             return;
         }
     }
-    console.log(req.body.name);
-    var author = {"name": req.body.name, "nationality": req.body.nationality, "birthDate": req.body.birthDate};
-    authors.push(author);
-    res.send(authors);
+    var manufacturer ={
+        "name": req.body.name,
+        "country": req.body.contry,
+        "founded": req.body.founded
+    };
+    manufacturers.push(manufacturer);
+    res.send(manufacturers);
 });
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/student/" + "index.html");
