@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require("body-parser");
+var cookieParser = require('cookie-parser');
 var app = express();
 var authors =
     [{"id": 1, "name": "dm", "nationality": "c#", "birthDate": randomDate()},
@@ -78,9 +79,8 @@ var books = [
         "available": 0,
         "publisher": "asd@asd.com"
     }];
-//app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/student'));
-
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
@@ -97,8 +97,40 @@ app.use(bodyParser.json());
 app.get('/authors', function (req, res) {
     res.send(authors);
 });
+app.get('/authorNames', function (req, res) {
+    var authorNames = [];
+    for (let a of authors) {
+        if (!authorNames.includes(a.name)) {
+            authorNames.push(a.name);
+        }
+    }
+    res.send(authorNames);
+});
 app.get('/books', function (req, res) {
     res.send(books);
+});
+app.get('/author', function (req, res) {
+    var ok = false;
+    for (var author of authors) {
+        if (author.name === req.cookies.name) {
+            ok = true;
+            break;
+        }
+    }
+
+    if (!ok) {
+        res.status(409).end();
+        return;
+    }
+
+    var authorBooks = [];
+    for (let a of books) {
+        if (req.cookies.name === a.author) {
+            authorBooks.push(a);
+        }
+    }
+    console.log(authorBooks);
+    res.send(authorBooks);
 });
 app.post('/addBook', function (req, res) {
     for (var book of books) {
@@ -131,19 +163,9 @@ app.post('/addAuthor', function (req, res) {
     var author = {"name": req.body.name, "nationality": req.body.nationality, "birthDate": req.body.birthDate};
     authors.push(author);
     res.send(authors);
-    //res.sendFile(__dirname + "/public/" + "index.html");
-    //res.redirect("/authors")
 });
-app.get('/addAuthor', function (req, res) {
-    res.sendFile(__dirname + "/public/" + "index.html");
-});
-
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + "/public/" + "index.html");
-});
-
-app.post('/', function (req, res) {
-    res.sendFile(__dirname + "/public/" + "index.html");
+    res.sendFile(__dirname + "/student/" + "index.html");
 });
 
 var server = app.listen(8081, function () {
