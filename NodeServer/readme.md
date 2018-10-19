@@ -9,6 +9,7 @@ Lack of css and jQuery result in failure.</br>
 Fundamental tempering with the server will result in failure. Change of port or host is allowed if neceserry, but the webpage should run on any computer</br>
 If you cannot prove that you wrote the frontend(cannot change basic details, explain something) you will fail.</br>
 Lack of features will result in failure.</br>
+etc.<br>
 The offered grade for the course will be given based on the quality of the code, the webpage, and your level of understanding.</br>
 The assignments can be written during the practice classes after we learned about AJAX. Absense will be noted in the attendace!</br>
 The assignment can be evaulated after the middle of november. I, Adam Satan will evaulate it and give your offered grade.</br>
