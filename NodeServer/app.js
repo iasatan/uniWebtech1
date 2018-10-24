@@ -11,7 +11,7 @@ var manufacturers =
         {"name": "Ford",                "country": "USA",           "founded": "June 16, 1903"},
         {"name": "Tesla",               "country": "USA",           "founded": "July 1, 2003"},
         {"name": "Chevrolet",           "country": "USA",           "founded": "November 3, 1911"},
-        {"name:":"Sungri Motor Plant",  "country": "True Korea",    "founded":"November 1, 1950"}
+        {"name": "Sungri Motor Plant",  "country": "True Korea",    "founded":"November 1, 1950"}
 ];
 var cars = [
     {
@@ -32,7 +32,7 @@ var cars = [
         "available":1,
         "horsepower":50
     },
-        {
+    {
         "name": "Focus",
         "consumption": "7/100km",
         "color": "blue",
@@ -40,7 +40,115 @@ var cars = [
         "available": 1,
         "year": 2013,
         "horsepower":120
-    }
+    },
+    {
+        "name": "Saxo",
+        "consumption": "4l/100km",
+        "color": "blue",
+    "manufacturer": "Citroen",
+    "available": 2,
+    "year": 2001,
+    "horsepower":65
+},
+{
+"name": "Panda",
+"consumption": "6l/100km",
+"color": "Red",
+"manufacturer": "Fiat",
+"available": 1,
+"year": 2000,
+"horsepower":85
+},
+{
+"name": "Fabia",
+"consumption": "5l/100km",
+"color": "white",
+"manufacturer": "Skoda",
+"available": 15,
+"year": 2007,
+"horsepower":68
+},
+{
+"name": "Laguna II",
+"consumption": "6l/100km",
+"color": "silver",
+"manufacturer": "Renault",
+"available": 1,
+"year": 2003,
+"horsepower": 96
+},
+{
+"name": "Supra",
+"consumption": "13l/100km",
+"color": "red",
+"manufacturer": "Toyota",
+"available": 8,
+"year": 1995,
+"horsepower":340
+},
+{
+"name": "Zafira",
+"consumption": "8l/100km",
+"color": "green",
+"manufacturer": "Opel",
+"available": 1,
+"year": 2002,
+"horsepower":116
+},
+{
+"name": "Ibiza",
+"consumption": "6l/100km",
+"color": "blue",
+"manufacturer": "Seat",
+"available": 100,
+"year": 2006,
+"horsepower": 120,
+},
+{
+"name": "Prelude",
+"consumption": "9l/100km",
+"color": "red",
+"manufacturer": "Honda",
+"available": 11,
+"year": 1999,
+"horsepower":150
+},
+{
+"name": "V40",
+"consumption": "5.6l/100km",
+"color": "Ocean blue",
+"manufacturer": "Volvo",
+"available": 1,
+"year": 2014,
+"horsepower":150
+},
+{
+"name": "Primera",
+"consumption": "9l/100km",
+"color": "brown",
+"manufacturer": "Nissan",
+"available": 15,
+"year": 2001,
+"horsepower":110
+},
+{
+"name": "Passat",
+"consumption": "6l/100km",
+"color": "black",
+"manufacturer": "Volkswagen",
+"available": 1,
+"year": 2009,
+"horsepower":140
+},
+{
+"name": "Lacetti",
+"consumption": "9l/100km",
+"color": "black",
+"manufacturer": "Chevrolet",
+"available": 5,
+"year": 2010,
+"horsepower":109
+}
     
     ];
 app.use(express.static(__dirname + '/student'));
