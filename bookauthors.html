@@ -5,7 +5,7 @@
 
         $.each(data, function (key, value) {
             var row = $('<tr></tr>');
-            var nameCell = $('<td id="authorId" onclick="openBooks(' + "'" + value.name + "'" + ')"' + value.name + '</td>');
+            var nameCell = $('<td id="authorId" onclick="openBooks(' + "'" + value.name + "'" + ')">' + value.name + '</td>');
             var nationCell = $('<td>' + value.nationality + '</td>');
             var birthDateCell = $('<td>' + value.birthDate + '</td>');
             row.append(nameCell);
