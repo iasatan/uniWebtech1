@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="application/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="application/javascript" src="js/index.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.each($(".menuButton"), function (mbIndex, mbValue) {
+                $(mbValue).click(function (event) {
+                    event.preventDefault();
+                    if (!($(this).find('a').attr("href") == "index.html")) {
+                        $("#content").load($(this).find('a').attr("href"));
+                    }
+                    else {
+                        open("index.html", "_self");
+                    }
+
+                });
+
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div id="everything">
+    <div id="header">
+        <div id="banner">
+            <div id="menuBar">
+                <span class="menuButton"><a href="index.html">Home</a></span>
+                <span class="menuButton"><a href="bookform.html">Add Books</a></span>
+                <span class="menuButton"><a href="authorform.html">Add Authors</a></span></td>
+                <span class="menuButton"><a href="bookauthors.html">Authors</a></span>
+            </div>
+            Library
+
+        </div>
+    </div>
+    <div id="content">
+
+
+    </div>
+
+</body>
+</html>
