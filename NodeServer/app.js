@@ -45,7 +45,7 @@ var cars = [
         "name": "Saxo",
         "consumption": "4l/100km",
         "color": "blue",
-    "manufacturer": "Citroen",
+    "manufacturer": "KIA",
     "available": 2,
     "year": 2001,
     "horsepower":65
@@ -54,7 +54,7 @@ var cars = [
 "name": "Panda",
 "consumption": "6l/100km",
 "color": "Red",
-"manufacturer": "Fiat",
+"manufacturer": "Tesla",
 "available": 1,
 "year": 2000,
 "horsepower":85
@@ -72,7 +72,7 @@ var cars = [
 "name": "Laguna II",
 "consumption": "6l/100km",
 "color": "silver",
-"manufacturer": "Renault",
+"manufacturer": "Sungri Motor Plant",
 "available": 1,
 "year": 2003,
 "horsepower": 96
@@ -99,7 +99,7 @@ var cars = [
 "name": "Ibiza",
 "consumption": "6l/100km",
 "color": "blue",
-"manufacturer": "Seat",
+"manufacturer": "KIA",
 "available": 100,
 "year": 2006,
 "horsepower": 120,
@@ -108,7 +108,7 @@ var cars = [
 "name": "Prelude",
 "consumption": "9l/100km",
 "color": "red",
-"manufacturer": "Honda",
+"manufacturer": "Ford",
 "available": 11,
 "year": 1999,
 "horsepower":150
@@ -126,7 +126,7 @@ var cars = [
 "name": "Primera",
 "consumption": "9l/100km",
 "color": "brown",
-"manufacturer": "Nissan",
+"manufacturer": "Toyota",
 "available": 15,
 "year": 2001,
 "horsepower":110
@@ -135,7 +135,7 @@ var cars = [
 "name": "Passat",
 "consumption": "6l/100km",
 "color": "black",
-"manufacturer": "Volkswagen",
+"manufacturer": "Tesla",
 "available": 1,
 "year": 2009,
 "horsepower":140
@@ -148,6 +148,33 @@ var cars = [
 "available": 5,
 "year": 2010,
 "horsepower":109
+},
+{
+"name": "911 Carrera",
+"consumption": "8.3l/100km",
+"color": "white",
+"manufacturer": "Sungri Motor Plant",
+"available": 1,
+"year": 2012,
+"horsepower":345
+},
+{
+"name": "Yaris",
+"consumption": "5l/100km",
+"color": "silver",
+"manufacturer": "Toyota",
+"available": 1,
+"year": 2007,
+"horsepower":69
+},
+{
+    "name": "P601",
+    "consumption": "8l / 100km",
+    "color": "lightblue",
+    "manufacturer": "KIA",
+    "available": 3,
+    "year": 1964,
+    "horsepower": 26
 }
     
     ];
