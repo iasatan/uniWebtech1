@@ -254,7 +254,7 @@ app.post('/addManufacturers', function (req, res) {
     }
     var manufacturer ={
         "name": req.body.name,
-        "country": req.body.contry,
+        "country": req.body.country,
         "founded": req.body.founded
     };
     manufacturers.push(manufacturer);
