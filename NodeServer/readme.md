@@ -6,9 +6,10 @@ You have to write the frontend for it using the following:
 
 Usage of css or other js libraries, frameworks result in failure.</br>
 Lack of css and jQuery result in failure.</br>
-Fundamental tempering with the server will result in failure. Change of port or host is allowed if neceserry, but the webpage should run on any computer</br>
+Tempering with the server will result in failure. Change of port or host is allowed if neceserry, but the webpage should run on my server(app.js).</br>
 If you cannot prove that you wrote the frontend(cannot change basic details, explain something) you will fail.</br>
-Lack of features will result in failure.</br>
+Lack of method usage will result in failure.</br>
+The features could be different from what you saw in the practice. Surprises, if they require at least equal amount of effort are welcome. 
 Unnecessary files should not be stored in the repository!</br>
 etc.<br>
 The offered grade for the course will be given based on the quality of the code, the webpage, and your level of understanding.</br>
