@@ -192,11 +192,11 @@ app.get('/manufacturers', function (req, res) {
 });
 app.get('/manufacturerNames', function (req, res) {
     var manufacturerNames = ["Opel","Toyota","KIA","Skoda","Ford","Tesla","Chevrolet","Sungri Motor Plant"];
-    /*for (var m of manufacturers) {
+    for (var m of manufacturers) {
         if (!manufacturerNames.includes(m.name)) {
             manufacturerNames.push(m.name);
         }
-    }*/
+    }
     res.send(manufacturerNames);
 });
 app.get('/cars', function (req, res) {
