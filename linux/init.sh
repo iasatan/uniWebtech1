@@ -9,5 +9,4 @@ wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
 tar -xzf postman.tar.gz -C /opt
 rm postman.tar.gz
 ln -s /opt/Postman/Postman /usr/bin/postman
-apt install htop wireshark ruby-sass apache2 firefox git npm
-update-rc.d apache2 defaults
+apt install htop wireshark ruby-sass firefox git npm
