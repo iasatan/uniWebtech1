@@ -14,7 +14,7 @@ Unnecessary files should not be stored in the repository!</br>
 etc.<br>
 The offered grade for the course will be given based on the quality of the code, the webpage, and your level of understanding.</br>
 The assignments can be written during the practice classes after we learned about AJAX.</br>
-The assignment can be evaulated after the middle of november. I, Adam Satan will evaulate it and give your offered grade.(Except for Erasmus students)</br>
+The assignment can be evaulated after the middle of november. I, Adam Satan will evaulate it</br>
 
 The following methods can be found in the server with these urls:
 - manufacturers: returns a json containing every manufacturer in the "database"
