@@ -99,7 +99,7 @@ app.get('/authors', function (req, res) {
 });
 app.get('/authorNames', function (req, res) {
     var authorNames = [];
-    for (let a of authors) {
+    for (var a of authors) {
         if (!authorNames.includes(a.name)) {
             authorNames.push(a.name);
         }
@@ -124,7 +124,7 @@ app.get('/author', function (req, res) {
     }
 
     var authorBooks = [];
-    for (let a of books) {
+    for (var a of books) {
         if (req.cookies.name === a.author) {
             authorBooks.push(a);
         }
