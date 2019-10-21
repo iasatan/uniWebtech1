@@ -1,0 +1,65 @@
+[
+    {
+        "title": "Das gesunde PLUS",
+        "genre": "medical",
+        "author": "dm",
+        "quantity": 2,
+        "available": 0,
+        "publisher": "asd@asd.com"
+    }, {
+        "title": "SUPERLIFE",
+        "genre": "electronics",
+        "author": "VARTA",
+        "quantity": 432,
+        "available": 233,
+        "publisher": "asd@asd.com"
+    }, {
+        "title": "meguntam",
+        "genre": "random1",
+        "author": "random2",
+        "quantity": 4,
+        "available": 2,
+        "publisher": "asd@asd.com"
+    }, {
+        "title": "random3",
+        "genre": "random4",
+        "author": "random5",
+        "quantity": 4,
+        "available": 2,
+        "publisher": "asd@asd.com"
+    }, {
+        "title": "random6",
+        "genre": "random7",
+        "author": "random8",
+        "quantity": 4,
+        "available": 2,
+        "publisher": "asd@asd.com"
+    }, {
+        "title": "random9",
+        "genre": "random10",
+        "author": "random11",
+        "quantity": 4,
+        "available": 2,
+        "publisher": "asd@asd.com"
+    }, {
+        "title": "Why everybody else is a loser",
+        "genre": "tisztelt",
+        "author": "Satan Adam",
+        "quantity": 0,
+        "available": 0,
+        "publisher": "asd@asd.com"
+    }, {
+        "title": "101 reasons why I am better than you",
+        "genre": "Fiction",
+        "author": "Satan Adam",
+        "quantity": 23,
+        "available": 22,
+        "publisher": "asd@asd.com"
+    }, {
+        "title": "ékezetes teszt",
+        "genre": "teszt",
+        "author": "Sátán",
+        "quantity": 0,
+        "available": 0,
+        "publisher": "asd@asd.com"
+    }]
