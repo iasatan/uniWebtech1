@@ -1,0 +1,10 @@
+[{"id": 1, "name": "dm", "nationality": "c#", "birthDate": randomDate()},
+        {"id": 2, "name": "VARTA", "nationality": "c#", "birthDate": randomDate()},
+        {"id": 3, "name": "tulajdonosok", "nationality": ".net", "birthDate": randomDate()},
+        {"id": 4, "name": "random2", "nationality": "public", "birthDate": randomDate()},
+        {"id": 5, "name": "random5", "nationality": "html", "birthDate": randomDate()},
+        {"id": 6, "name": "random8", "nationality": "platform", "birthDate": randomDate()},
+        {"id": 7, "name": "random11", "nationality": "webapp", "birthDate": randomDate()},
+        {"id": 8, "name": "asd", "nationality": "postman", "birthDate": randomDate()},
+        {"id": 9, "name": "Satan Adam", "nationality": "github", "birthDate": randomDate()},
+        {"id": 10, "name": "Sátán", "nationality": "timestamp", "birthDate": randomDate()}]
