@@ -1,4 +1,4 @@
-The backend for the assignment can be found here.</br>
+The backend for the assignment can be found here:https://webtechcars.herokuapp.com </br>
 You have to write the frontend for it using the following:
 - HTML
 - CSS
@@ -16,8 +16,8 @@ The assignments can be written during the practice classes after we learned abou
 The assignment can be evaulated after the middle of november. I, Adam Satan will evaulate it</br>
 
 The following methods can be found in the server with these urls:
-https://webtechcars.herokuapp.com/api/cars
-https://webtechcars.herokuapp.com/api/manufacturers
+- https://webtechcars.herokuapp.com/api/cars
+- https://webtechcars.herokuapp.com/api/manufacturers
 Both of them has GET, POST and DELETE methods mapped to them.
 
 I should be able to read, insert and update both of them.
